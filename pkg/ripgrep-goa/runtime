@@ -1,0 +1,28 @@
+<runtime ram="10M" caps="1000" binary="rg">
+    <requires>
+        <timer/>
+    </requires>
+    <config>
+        <libc stdout="/dev/log" stderr="/dev/log" rng="dev/random" />
+        <vfs>
+            <dir name="dev">
+                <inline name="random">0123456789012345678901234567890123456789</inline>
+                <log/>
+            </dir>
+            <inline name="testfile">
+            Some lines don't match but let's
+            say hello to Genode!
+            </inline>
+        </vfs>
+        <arg value="rg"/>
+        <arg value="--no-mmap"/>
+        <arg value="Genode"/>
+        <arg value="/testfile"/>
+    </config>
+    <content>
+        <rom label="rg"/>
+        <rom label="posix.lib.so"/>
+        <rom label="libc.lib.so"/>
+        <rom label="vfs.lib.so"/>
+    </content>
+</runtime>

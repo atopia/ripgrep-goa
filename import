@@ -1,0 +1,7 @@
+ LICENSE   := MIT
+ VERSION   := master
+ DOWNLOADS := ripgrep.git
+
+ URL(ripgrep) := https://github.com/BurntSushi/ripgrep.git
+ REV(ripgrep) := 13.0.0
+ DIR(ripgrep) := src
